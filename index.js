@@ -22,7 +22,7 @@ const crearNuevaReserva = (reserva) => {
     const contador = firebase.firestore.FieldValue.increment(1);
     
     //Procedo a guardar una reserva
-    transaction.set(rangoHoraDoc.doc(), reserva)
+    transaction.set(rangoHoraDoc.collection("citas").doc(), reserva)
     
     //Procedo a actualizar la propiedad contador
     transaction.set(rangoHoraDoc, { total: contador}, { merge: true })
